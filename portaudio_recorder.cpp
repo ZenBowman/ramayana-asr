@@ -9,8 +9,8 @@
 const std::string base_dir =
     "/home/psamtani/development/pocketsphinx-0.8/model";
 const std::string hmm = base_dir + "/hmm/en_US/hub4wsj_sc_8k";
-const std::string lm = base_dir + "/lm/en/ramayana.DMP";
-  const std::string dict = base_dir + "/lm/en/ramayana.dic";
+const std::string lm = "lm/ramayana.lm";
+const std::string dict = "lm/ramayana.dic";
 
 constexpr unsigned int bufferSize = 512;
 constexpr unsigned int sampleRate = 16000;
@@ -49,12 +49,13 @@ static int recordCallback(const void *inputBuffer, void *outputBuffer,
   }
 
   history.push_back(max);
-  if ((history.size() % 50) == 0) {
+  if ((history.size() % 150) == 140) {
     char const *uttid;
     int32 score;
     int rv = ps_end_utt(ps);
     const char *hyp1 = ps_get_hyp(ps, &score, &uttid);
-    std::cout << "Recognized: " << uttid << " = " << hyp1 << "(" << numcalls
+    int32 prob = ps_get_prob(ps, &uttid);
+    std::cout << "Recognized: " << uttid << " = " << hyp1 << "(" << prob
               << ")" << std::endl;
     
     zmq::message_t response(strlen(hyp1));
@@ -65,11 +66,13 @@ static int recordCallback(const void *inputBuffer, void *outputBuffer,
     return paContinue;
   }
 
-  if ((history.size() % 50) == 1) {
+  if ((history.size() % 150) == 1) {
     ps_start_utt(ps, "foo");
   }
 
-  ps_process_raw(ps, data, 512, FALSE, FALSE);
+  if (((history.size() % 150) > 1) && ((history.size() % 150) < 140)){
+    ps_process_raw(ps, data, 512, FALSE, FALSE);
+  }
 
   std::cout << max << " ";
   return paContinue;

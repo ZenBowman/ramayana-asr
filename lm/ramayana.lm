@@ -1,0 +1,84 @@
+Language model created by QuickLM on Thu May 22 11:55:42 EDT 2014
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 6 sentences and 15 words
+
+\data\
+ngram 1=15
+ngram 2=21
+ngram 3=25
+
+\1-grams:
+-0.8129 </s> -0.2285
+-0.8129 <s> -0.1871
+-1.8921 AHAM -0.2954
+-1.8921 BRAHMASMI -0.2285
+-1.5911 FORWARD -0.2218
+-1.5911 GO -0.2897
+-1.8921 HUM -0.2285
+-1.8921 KIYA -0.2285
+-1.8921 MANI -0.2954
+-1.8921 METERS -0.2285
+-1.8921 NAMAH -0.2954
+-1.8921 OM -0.2954
+-1.8921 PADME -0.2954
+-1.8921 SHIVAYA -0.2285
+-1.8921 TEN -0.2954
+
+\2-grams:
+-0.6021 </s> </s> -0.3010
+-0.6021 <s> <s> -0.1761
+-1.3802 <s> AHAM 0.0000
+-1.0792 <s> GO 0.0000
+-1.3802 <s> KIYA 0.0000
+-1.3802 <s> NAMAH 0.0000
+-1.3802 <s> OM 0.0000
+-0.3010 AHAM BRAHMASMI 0.0000
+-0.3010 BRAHMASMI </s> -0.1761
+-0.6021 FORWARD </s> -0.1761
+-0.6021 FORWARD TEN 0.0000
+-0.3010 GO FORWARD 0.0000
+-0.3010 HUM </s> -0.1761
+-0.3010 KIYA </s> -0.1761
+-0.3010 MANI PADME 0.0000
+-0.3010 METERS </s> -0.1761
+-0.3010 NAMAH SHIVAYA 0.0000
+-0.3010 OM MANI 0.0000
+-0.3010 PADME HUM 0.0000
+-0.3010 SHIVAYA </s> -0.1761
+-0.3010 TEN METERS 0.0000
+
+\3-grams:
+-1.0792 <s> <s> AHAM
+-0.7782 <s> <s> GO
+-1.0792 <s> <s> KIYA
+-1.0792 <s> <s> NAMAH
+-1.0792 <s> <s> OM
+-0.3010 <s> AHAM BRAHMASMI
+-0.3010 <s> GO FORWARD
+-0.3010 <s> KIYA </s>
+-0.3010 <s> NAMAH SHIVAYA
+-0.3010 <s> OM MANI
+-0.3010 AHAM BRAHMASMI </s>
+-0.3010 BRAHMASMI </s> </s>
+-0.3010 FORWARD </s> </s>
+-0.3010 FORWARD TEN METERS
+-0.6021 GO FORWARD </s>
+-0.6021 GO FORWARD TEN
+-0.3010 HUM </s> </s>
+-0.3010 KIYA </s> </s>
+-0.3010 MANI PADME HUM
+-0.3010 METERS </s> </s>
+-0.3010 NAMAH SHIVAYA </s>
+-0.3010 OM MANI PADME
+-0.3010 PADME HUM </s>
+-0.3010 SHIVAYA </s> </s>
+-0.3010 TEN METERS </s>
+
+\end\
